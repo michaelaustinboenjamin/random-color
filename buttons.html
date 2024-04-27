@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="redBg()">RED</button>
+    <button onclick="grnBg()">GREEN</button>
+    <button onclick="blueBg()">BLUE</button>
+    <button id="reset">Reset</button>
+    <button id="dark">Dark</button>
+    <button id="random">Random color</button>
+    <script>
+        const background=document.body;
+        function redBg(){
+            background.style.backgroundColor="red";
+        }
+        const grnBg= function(){
+            background.style.backgroundColor="green";
+        }
+        const blueBg=()=>{
+            background.style.backgroundColor="blue";
+        }
+        function resetfunc(){
+            background.style.backgroundColor="white";
+        }
+        document.getElementById("reset").addEventListener('click',resetfunc);
+        document.getElementById("dark").addEventListener('click',()=>{
+            background.style.backgroundColor="black";
+        })
+        function randomnumber(){
+            return Math.floor(Math.random()*256);
+        }
+        function randombg(){
+            let random=[randomnumber(),randomnumber(),randomnumber()];
+            console.log(random);
+            background.style.backgroundColor=`rgb(${random[0]},${random[1]},${random[2]})`;
+        }
+        document.getElementById("random").onclick=randombg;
+    </script>
+</body>
+</html>
